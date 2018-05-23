@@ -1,13 +1,13 @@
 import copy;
 
-input = [0, 3, 4, 5, 7, 9, 11,13];
+input = [0, 1, 2, 3, 4, 5, 6, 7];
 main_container = [];
 
 def convertToBin(num):
     binArray = [];
     binList = list(bin(num));
     i = 1;
-    while i < len(binList):
+    while i <= len(binList):
         if binList[-i] == "b":
             j = i;
             while j < len(binList):
@@ -55,7 +55,6 @@ def compare(l1, l2):
     return flag;
 
 def combine(g):
-    #print("hit")
     backup_container = copy.copy(g);
     flag_recursion = False;
     for m in backup_container:
@@ -69,7 +68,6 @@ def combine(g):
                 if flag not in g:
                     g.append(flag);
                 flag_recursion = True;
-    #print(g);
     if flag_recursion: combine(g);
     return g;
 
@@ -78,13 +76,3 @@ for i in input:
     main_container.append(i_list);
 
 Quine_McCluskey_list = combine(main_container);
-print (Quine_McCluskey_list);
-
-# l1 = convertToBin(0);
-# l2 = convertToBin(1);
-# l3 = convertToBin(8);
-# l4 = convertToBin(9);
-# l5 = convertToBin(31);
-# l6 = convertToBin(23);
-# g = combine([l1, l2, l3, l4, l5, l6]);
-# print (g);
